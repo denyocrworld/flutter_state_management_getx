@@ -1,6 +1,10 @@
 // ignore_for_file: camel_case_types, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_state_management/module/bloc/menu.dart';
+import 'package:flutter_state_management/module/getx/menu.dart';
+import 'package:flutter_state_management/module/provider/menu.dart';
+import 'package:flutter_state_management/module/riverpod/menu.dart';
 
 class DemoView extends StatelessWidget {
   const DemoView({Key? key}) : super(key: key);
@@ -10,19 +14,19 @@ class DemoView extends StatelessWidget {
     List<Map<String, dynamic>> menuList = [
       {
         "label": "Getx",
-        "page": Container(),
+        "page": const GetxMenuView(),
       },
       {
         "label": "Provider",
-        "page": Container(),
+        "page": const ProviderMenuView(),
       },
       {
         "label": "Riverpod",
-        "page": Container(),
+        "page": const RiverpodMenuView(),
       },
       {
         "label": "Bloc",
-        "page": Container(),
+        "page": const BlocMenuView(),
       }
     ];
     return Scaffold(

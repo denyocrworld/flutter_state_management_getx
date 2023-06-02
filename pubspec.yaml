@@ -39,6 +39,8 @@ dependencies:
   riverpod: ^2.3.6
   provider: ^6.0.5
   get: ^4.6.5
+  dio: ^5.1.2
+  shared_preferences: ^2.1.1
 
 dev_dependencies:
   flutter_test:
