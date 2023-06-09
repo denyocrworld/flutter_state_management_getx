@@ -1,41 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:hyper_ui/core.dart';
+import 'package:get/get.dart';
 import '../view/enabled_or_disabled_view.dart';
 
-class EnabledOrDisabledController extends State<EnabledOrDisabledView>
-    implements MvcController {
-  static late EnabledOrDisabledController instance;
-  late EnabledOrDisabledView view;
+class EnabledOrDisabledController extends GetxController {
+  EnabledOrDisabledView? view;
 
   @override
-  void initState() {
-    instance = this;
-    super.initState();
+  void onInit() {
+    super.onInit();
   }
 
   @override
-  void dispose() => super.dispose();
+  void onReady() {
+    super.onReady();
+  }
 
   @override
-  Widget build(BuildContext context) => widget.build(context, this);
-
-  String? email;
-  String? password;
-
-  bool get isValid {
-    if (email == "" || password == "") return false;
-    if (email != null && password != null) return true;
-
-    return false;
-  }
-
-  doSave() async {
-    if (isValid) {
-      showInfoDialog("Berhasil menyimpan data!");
-    }
-  }
-
-  checkFormValidation() {
-    setState(() {});
+  void onClose() {
+    super.onClose();
   }
 }

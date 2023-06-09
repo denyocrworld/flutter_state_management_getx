@@ -1,36 +1,32 @@
 import 'package:flutter/material.dart';
 import '../controller/timer_controller.dart';
+import 'package:hyper_ui/core.dart';
+import 'package:get/get.dart';
 
-class TimerView extends StatefulWidget {
-  TimerView({Key? key}) : super(key: key);
-
-  Widget build(context, TimerController controller) {
-    controller.view = this;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Timer"),
-        actions: [],
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              Text(
-                "${controller.time}",
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+class TimerView extends StatelessWidget {
+  const TimerView({Key? key}) : super(key: key);
 
   @override
-  State<TimerView> createState() => TimerController();
+  Widget build(BuildContext context) {
+    return GetBuilder<TimerController>(
+      init: TimerController(),
+      builder: (controller) {
+        controller.view = this;
+
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text("Timer"),
+          ),
+          body: SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: const [],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
 }

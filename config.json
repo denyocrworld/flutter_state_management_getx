@@ -1,4 +1,18 @@
 {
     "openai_key": "",
-    "modules": []
+    "modules": [
+        "counter",
+        "single_selection",
+        "multiple_selection",
+        "cart",
+        "animation_from_state",
+        "timer",
+        "enabled_or_disabled",
+        "http_request_loading",
+        "dropdown_with_remote_datasource",
+        "checkfield_with_remote_datasource",
+        "map_with_remote_datasource",
+        "theme_changer",
+        "navigation"
+    ]
 }

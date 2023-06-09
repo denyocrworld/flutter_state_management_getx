@@ -1,54 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/core.dart';
 import '../controller/checkfield_with_remote_datasource_controller.dart';
+import 'package:hyper_ui/core.dart';
+import 'package:get/get.dart';
 
-class CheckfieldWithRemoteDatasourceView extends StatefulWidget {
+class CheckfieldWithRemoteDatasourceView extends StatelessWidget {
   const CheckfieldWithRemoteDatasourceView({Key? key}) : super(key: key);
 
-  Widget build(context, CheckfieldWithRemoteDatasourceController controller) {
-    controller.view = this;
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<CheckfieldWithRemoteDatasourceController>(
+      init: CheckfieldWithRemoteDatasourceController(),
+      builder: (controller) {
+        controller.view = this;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("DropdownWithRemoteDatasource"),
-        actions: [],
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              Card(
-                child: Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        "${controller.users}",
-                        style: TextStyle(
-                          fontSize: 12.0,
-                        ),
-                      ),
-                      if (controller.users.isNotEmpty)
-                        QCheckField(
-                          label: "Roles",
-                          hint: "Your roles",
-                          validator: Validator.required,
-                          items: controller.users,
-                          onChanged: (value, label) {},
-                        ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text("CheckfieldWithRemoteDatasource"),
           ),
-        ),
-      ),
+          body: SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: const [],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
-
-  @override
-  State<CheckfieldWithRemoteDatasourceView> createState() =>
-      CheckfieldWithRemoteDatasourceController();
 }

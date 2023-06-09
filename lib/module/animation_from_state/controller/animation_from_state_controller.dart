@@ -1,27 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+import 'package:get/get.dart';
 import '../view/animation_from_state_view.dart';
 
-class AnimationFromStateController extends State<AnimationFromStateView>
-    implements MvcController {
-  static late AnimationFromStateController instance;
-  late AnimationFromStateView view;
+class AnimationFromStateController extends GetxController {
+  AnimationFromStateView? view;
 
   @override
-  void initState() {
-    instance = this;
-    super.initState();
+  void onInit() {
+    super.onInit();
   }
 
   @override
-  void dispose() => super.dispose();
+  void onReady() {
+    super.onReady();
+  }
 
   @override
-  Widget build(BuildContext context) => widget.build(context, this);
-
-  bool isAnimated = false;
-  updateAnimationState() {
-    isAnimated = !isAnimated;
-    setState(() {});
+  void onClose() {
+    super.onClose();
   }
 }

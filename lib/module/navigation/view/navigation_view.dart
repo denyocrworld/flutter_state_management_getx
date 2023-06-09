@@ -1,43 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_ui/module/navigation/widget/custom_navigation/view/custom_navigation.dart';
 import '../controller/navigation_controller.dart';
+import 'package:hyper_ui/core.dart';
+import 'package:get/get.dart';
 
-class NavigationView extends StatefulWidget {
-  NavigationView({Key? key}) : super(key: key);
-
-  Widget build(context, NavigationController controller) {
-    controller.view = this;
-
-    return CustomNavigationView(
-      navigationItems: [
-        {
-          "label": "Dashboard",
-          "view": Container(
-            color: Colors.red,
-          ),
-        },
-        {
-          "label": "Order",
-          "view": Container(
-            color: Colors.green,
-          ),
-        },
-        {
-          "label": "Favorite",
-          "view": Container(
-            color: Colors.purple,
-          ),
-        },
-        {
-          "label": "Profile",
-          "view": Container(
-            color: Colors.orange,
-          ),
-        }
-      ],
-    );
-  }
+class NavigationView extends StatelessWidget {
+  const NavigationView({Key? key}) : super(key: key);
 
   @override
-  State<NavigationView> createState() => NavigationController();
+  Widget build(BuildContext context) {
+    return GetBuilder<NavigationController>(
+      init: NavigationController(),
+      builder: (controller) {
+        controller.view = this;
+
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text("Navigation"),
+          ),
+          body: SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: const [],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
 }

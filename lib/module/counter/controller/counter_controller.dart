@@ -1,31 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+import 'package:get/get.dart';
 import '../view/counter_view.dart';
 
-class CounterController extends State<CounterView> implements MvcController {
-  static late CounterController instance;
-  late CounterView view;
+class CounterController extends GetxController {
+  CounterView? view;
 
   @override
-  void initState() {
-    instance = this;
-    super.initState();
+  void onInit() {
+    super.onInit();
   }
 
   @override
-  void dispose() => super.dispose();
-
-  @override
-  Widget build(BuildContext context) => widget.build(context, this);
-
-  int counter = 0;
-  var counter2 = ValueNotifier(0);
-  updateCounter() {
-    counter++;
-    setState(() {});
+  void onReady() {
+    super.onReady();
   }
 
-  updateCounter2() {
-    counter2.value++;
+  @override
+  void onClose() {
+    super.onClose();
   }
 }

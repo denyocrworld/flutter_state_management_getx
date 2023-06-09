@@ -1,21 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:hyper_ui/state_util.dart';
+import 'package:get/get.dart';
 import '../view/navigation_view.dart';
 
-class NavigationController extends State<NavigationView>
-    implements MvcController {
-  static late NavigationController instance;
-  late NavigationView view;
+class NavigationController extends GetxController {
+  NavigationView? view;
 
   @override
-  void initState() {
-    instance = this;
-    super.initState();
+  void onInit() {
+    super.onInit();
   }
 
   @override
-  void dispose() => super.dispose();
+  void onReady() {
+    super.onReady();
+  }
 
   @override
-  Widget build(BuildContext context) => widget.build(context, this);
+  void onClose() {
+    super.onClose();
+  }
 }

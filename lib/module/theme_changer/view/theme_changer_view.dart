@@ -1,49 +1,32 @@
 import 'package:flutter/material.dart';
 import '../controller/theme_changer_controller.dart';
+import 'package:hyper_ui/core.dart';
+import 'package:get/get.dart';
 
-class ThemeChangerView extends StatefulWidget {
+class ThemeChangerView extends StatelessWidget {
   const ThemeChangerView({Key? key}) : super(key: key);
 
-  Widget build(context, ThemeChangerController controller) {
-    controller.view = this;
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<ThemeChangerController>(
+      init: ThemeChangerController(),
+      builder: (controller) {
+        controller.view = this;
 
-    return Theme(
-      data: controller.theme,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text("ThemeChanger"),
-          actions: const [],
-        ),
-        body: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueGrey,
-                  ),
-                  onPressed: () => controller.updateToDarkTheme(),
-                  child: const Text("Dark Theme"),
-                ),
-                const SizedBox(
-                  height: 12.0,
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueGrey,
-                  ),
-                  onPressed: () => controller.updateToOrangeTheme(),
-                  child: const Text("Orange Theme"),
-                ),
-              ],
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text("ThemeChanger"),
+          ),
+          body: SingleChildScrollView(
+            child: Container(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: const [],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
-
-  @override
-  State<ThemeChangerView> createState() => ThemeChangerController();
 }
